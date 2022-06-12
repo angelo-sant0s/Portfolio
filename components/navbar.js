@@ -1,26 +1,29 @@
+import { motion } from 'framer-motion';
 import Link from 'next/link';
+import { useState } from 'react';
 import {
     FiTwitter, 
     FiLinkedin,
     FiGithub } from 'react-icons/fi';
+import { HiMenuAlt3 } from 'react-icons/hi';    
 
-const Nav = () => {
+
+const Nav = (props) => {
+    
     return(
-        <>
+        <motion.div
+        initial={{ opacity: 0, y: -180 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{
+          ease: "easeInOut",
+          duration: 1,
+          delay: 0.6,
+        }}>
         <nav>
             <div className="nav-brand">
-                Ângelo Santos
-            </div>
-            <div className="nav-items">
-                <div className="nav-item">
-                    <Link href='/'>Home</Link>
-                </div>
-                <div className="nav-item">
-                    <Link href='/about'>About</Link>
-                </div>
-                <div className="nav-item">
-                    <Link href='/works'>Works</Link>
-                </div>
+                <motion.h1 whileHover={{x: 25}}>
+                    <Link href={'/'}>Ângelo Santos</Link>
+                </motion.h1>
             </div>
             <div className="nav-socials">
                 <div className='nav-social'> 
@@ -33,8 +36,11 @@ const Nav = () => {
                     <FiLinkedin />
                 </div>
             </div>
+            <div className='menu-icon'>
+                <button onClick={props.Toggle}><HiMenuAlt3 /></button> 
+            </div>
         </nav>
-        </>
+        </motion.div>
     )
 }
 
