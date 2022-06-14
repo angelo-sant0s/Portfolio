@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useState } from 'react';
 import {
     FiTwitter, 
@@ -20,11 +21,12 @@ const Nav = (props) => {
           delay: 0.6,
         }}>
         <nav>
-            <div className="nav-brand">
-                <motion.h1 whileHover={{x: 25}}>
-                    <Link href={'/'}>Ângelo Santos</Link>
-                </motion.h1>
-            </div>
+            <motion.div className="nav-brand"  whileHover={{x: 25}}>
+                <Image src='/static/imgs/Logo.svg' alt='logo' height={40} width={40} />
+                <h1>
+                    <Link href={'/'}>ngelo</Link>
+                </h1>
+            </motion.div>
             <div className="nav-socials">
                 <div className='nav-social'> 
                     <FiTwitter />

@@ -11,9 +11,9 @@ const Layout = ({ children }) => {
         isOpen(!Open);
     }
     return(
-        <div className="content">
-            <Nav Toggle={Toggle}/>
+        <div className="content">   
             {Open ? (<Menu Toggle={Toggle} Open={Open}/>) : (<></>)}
+            <Nav Toggle={Toggle}/>
             { children }
             <Footer />
         </div>
